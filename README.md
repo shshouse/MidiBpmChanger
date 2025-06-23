@@ -1,20 +1,4 @@
 # 🎵 MIDI BPM 修改器
-一个简单的图形界面工具，用于批量导入 MIDI 文件并统一调整 BPM。
-## 📸 界面截图
-### 主界面截图，展示了批量导入 MIDI 文件、设置目标 BPM 和转换状态的功能。
+一个简单的工具，用于批量导入 MIDI 文件并统一调整 BPM。
 ![image](https://github.com/shshouse/MidiBpmChanger/blob/master/dist/img2.png)
 ![image](https://github.com/shshouse/MidiBpmChanger/blob/master/dist/img1.png)
-## 转换完成后显示的成功提示窗口。
-🔧 功能特性
-✅ 多语言支持：支持中文和英文切换。
-🌐 批量处理：一次导入多个 MIDI 文件进行统一 BPM 调整。
-📊 状态跟踪：在表格中查看每个文件的原始 BPM 和转换状态。
-🎛️ 目标 BPM 设置：通过输入框指定统一的目标 BPM 值。
-💾 保存为新文件：转换后自动保存为新的 .mid 文件，避免覆盖原始数据。
-📦 安装依赖
-## 确保你已安装以下 Python 库：
-pip install mido tkinter
-## 🚀 使用方法
-### 图形界面模式（默认）
-直接运行脚本启动图形界面：
-python midi_bpm_changer.py
