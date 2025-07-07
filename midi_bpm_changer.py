@@ -15,8 +15,8 @@ class MidiBPMChanger:
         self.lang = 'zh'
         self.lang_texts = {
             'zh': {
-                'menu_language': '语言',
-                'menu_about': '关于',
+                'menu_language': '[语言/Language]',
+                'menu_about': '[关于/About]',
                 'about_title': '关于小程序',
                 'about_content': 'MIDI BPM 修改器 v1.0\n用于批量导入 MIDI 文件并统一调整 BPM。',
                 'load_button': '导入 MIDI 文件',
@@ -88,9 +88,10 @@ class MidiBPMChanger:
         self.load_btn.config(text=self.lang_texts[self.lang]['load_button'])
         self.convert_btn.config(text=self.lang_texts[self.lang]['convert_button'])
         self.target_bpm_label.config(text=self.lang_texts[self.lang]['target_bpm_label'])
-        self.filename_header.config(text=self.lang_texts[self.lang]['filename_header'])
-        self.original_bpm_header.config(text=self.lang_texts[self.lang]['original_bpm_header'])
-        self.status_header.config(text=self.lang_texts[self.lang]['status_header'])
+
+        self.tree.heading("filename", text=self.lang_texts[self.lang]['filename_header'])
+        self.tree.heading("original_bpm", text=self.lang_texts[self.lang]['original_bpm_header'])
+        self.tree.heading("status", text=self.lang_texts[self.lang]['status_header'])
 
     def show_about(self):
         messagebox.showinfo(self.lang_texts[self.lang]['about_title'], self.lang_texts[self.lang]['about_content'])
