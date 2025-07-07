@@ -18,7 +18,7 @@ class MidiBPMChanger:
                 'menu_language': '[语言/Language]',
                 'menu_about': '[关于/About]',
                 'about_title': '关于小程序',
-                'about_content': 'MIDI BPM 修改器 v1.0\n用于批量导入 MIDI 文件并统一调整 BPM。',
+                'about_content': 'MIDI BPM 修改器 v1.1\n用于批量导入 MIDI 文件并统一调整 BPM。',
                 'load_button': '导入 MIDI 文件',
                 'target_bpm_label': '目标 BPM:',
                 'convert_button': '开始转换',
