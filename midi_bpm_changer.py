@@ -11,14 +11,13 @@ class MidiBPMChanger:
         self.root.geometry("600x500")
         self.root.resizable(False, False)
 
-        # 多语言支持
         self.lang = 'zh'
         self.lang_texts = {
             'zh': {
                 'menu_language': '[语言/Language]',
                 'menu_about': '[关于/About]',
                 'about_title': '关于小程序',
-                'about_content': 'MIDI BPM 修改器 v1.1\n用于批量导入 MIDI 文件并统一调整 BPM。',
+                'about_content': 'MIDI BPM 修改器 v1.1\n用于批量导入 MIDI 文件并统一调整 BPM\n作者：shshouse',
                 'load_button': '导入 MIDI 文件',
                 'target_bpm_label': '目标 BPM:',
                 'convert_button': '开始转换',
@@ -37,7 +36,7 @@ class MidiBPMChanger:
                 'menu_language': 'Language',
                 'menu_about': 'About',
                 'about_title': 'About the App',
-                'about_content': 'MIDI BPM Changer v1.0\nUsed to batch import MIDI files and adjust BPM uniformly.',
+                'about_content': 'MIDI BPM Changer v1.0\nUsed to batch import MIDI files and adjust BPM uniformly.\nAuthor: shshouse',
                 'load_button': 'Import MIDI Files',
                 'target_bpm_label': 'Target BPM:',
                 'convert_button': 'Start Conversion',
@@ -54,7 +53,6 @@ class MidiBPMChanger:
             }
         }
 
-        # 创建菜单栏
         menu_bar = tk.Menu(self.root)
         lang_menu = tk.Menu(menu_bar, tearoff=0)
         lang_menu.add_command(label="中文", command=lambda: self.change_language('zh'))
@@ -67,12 +65,10 @@ class MidiBPMChanger:
 
         self.root.config(menu=menu_bar)
 
-        # 初始化变量
-        self.mid_files = []  # 存储导入的 MIDI 文件路径
-        self.midi_objects = []  # 存储解析的 MIDI 对象
+        self.mid_files = []
+        self.midi_objects = []
         self.target_bpm_entry = tk.Entry(self.root)
 
-        # 创建界面组件
         self.create_widgets()
 
     def change_language(self, lang):
@@ -97,20 +93,16 @@ class MidiBPMChanger:
         messagebox.showinfo(self.lang_texts[self.lang]['about_title'], self.lang_texts[self.lang]['about_content'])
 
     def create_widgets(self):
-        # 主框架
         main_frame = tk.Frame(self.root)
         main_frame.pack(pady=20, fill=tk.BOTH, expand=True)
 
-        # Logo 区域
         logo_label = tk.Label(main_frame, text="🎵 MIDI BPM CHANGER 🎵", font=("Arial", 16, "bold"))
         logo_label.pack(pady=10)
 
-        # 导入按钮
         self.load_btn = tk.Button(main_frame, text=self.lang_texts[self.lang]['load_button'],
                                   command=self.load_midi_files)
         self.load_btn.pack(pady=10)
 
-        # 目标 BPM 输入框（新增 frame 并使用 pack 布局）
         target_bpm_frame = tk.Frame(main_frame)
         target_bpm_frame.pack(pady=10)
 
@@ -120,12 +112,10 @@ class MidiBPMChanger:
         self.target_bpm_entry = tk.Entry(target_bpm_frame, width=10)
         self.target_bpm_entry.pack(side=tk.LEFT, padx=5)
 
-        # 开始转换按钮
         self.convert_btn = tk.Button(target_bpm_frame, text=self.lang_texts[self.lang]['convert_button'],
                                      command=self.convert_bpm)
         self.convert_btn.pack(side=tk.LEFT, padx=5)
 
-        # 表格显示 MIDI 文件列表
         table_frame = tk.Frame(main_frame)
         table_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=10)
 
@@ -152,7 +142,7 @@ class MidiBPMChanger:
             for msg in track:
                 if msg.type == 'set_tempo':
                     return int(60000000 / msg.tempo)
-        return 120  # 默认 BPM
+        return 120  #默认BPM120
 
     def load_midi_files(self):
         file_paths = filedialog.askopenfilenames(filetypes=[("MIDI 文件", "*.mid")])
