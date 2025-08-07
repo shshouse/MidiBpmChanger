@@ -1,0 +1,28 @@
+# 操作系统相关文件
+.DS_Store
+Thumbs.db
+
+# Python相关文件
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+*文档.md
+
+# PyCharm IDE配置
+.idea/
+*.iml
+
+# 构建和分发目录
+build/
+dist/
+*.spec
+
+# VSCodeCounter工具目录
+.VSCodeCounter/
+
+# 其他临时文件
+*.log
+*.tmp
+*.bak
